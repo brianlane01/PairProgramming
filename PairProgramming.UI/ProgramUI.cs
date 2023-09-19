@@ -10,6 +10,7 @@ namespace PairProgramming.UI
     public class ProgramUI
     {
         private readonly EnemyRepository _villageEnemyRepo = new EnemyRepository();
+        
         // private PairProgramming.Data.Entities.EnemyEntities _enemy;
         public Player newHero = new Player();
         public bool _rescuedUpperVillage;
@@ -78,6 +79,7 @@ namespace PairProgramming.UI
                                     "The goblins have destroyed portions of the village and surrounding farmlands....\n" +
                                     "You must defeat The Goblin Lord and any other foes that cross your path\n" +
                                         "Press any key to continue.. ");
+            ReadKey();
             MainGate();
         }
 
@@ -364,16 +366,20 @@ namespace PairProgramming.UI
 
         private void SneakAroundLowerVillage()
         {
+            Console.Clear();
+            Console.ReadKey()
             if (_rescuedUpperVillage == true)
             {
                 Console.Clear();
                 System.Console.WriteLine("The only way forward is to fight the goblins here...\n" +
                                         $"Prepare {playerName} the enemy is coming...");
+                Console.ReadKey();                        
                 AttackLowerVillage();
             }
             else
             {
                 System.Console.WriteLine("You are able to successfully make it pass the enemies back to the main area of the village.");
+                ReadKey();
                 MainGate();
             }
         }
