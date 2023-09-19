@@ -8,9 +8,31 @@ namespace PairProgramming.Data.Entities.EnemyEntities
 {
     public abstract class Enemy
     {
+        public Enemy()
+        {
+            _healthPoints = 100;
+        }
+        private int _healthPoints;
         public int ID { get; set; }
         public string Name { get; set; } = string.Empty;
-        public int HealthPoints { get; set; } = 100;
+        public int HealthPoints 
+        {
+            get
+            {
+                return _healthPoints;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    _healthPoints = value;
+                }
+                else
+                {
+                    _healthPoints = 0;
+                }
+            } 
+        } 
         public int AttackStrength {get; set;}
         public string AttackName {get; set;}
         public bool IsAlive
@@ -33,12 +55,12 @@ namespace PairProgramming.Data.Entities.EnemyEntities
             HealthPoints -= pointValue;
         }
 
-        public virtual void EnemyAttack(Player player, int attackStrength , string attackName)
+        public virtual void EnemyAttack(Player player)
         {
             if(player.HealthPoints > 0)
             {
-                player.DecreaseHealth(attackStrength);
-                System.Console.WriteLine($"{Name} just hit you with {attackName.ToUpper()} you Lost {attackStrength} Health!");
+                player.DecreaseHealth(AttackStrength);
+                System.Console.WriteLine($"{Name} just hit you with {AttackName.ToUpper()} you Lost {AttackStrength} Health!");
             }
         }
 

@@ -47,7 +47,8 @@ namespace PairProgramming.Data.Entities.PlayerEntities
         }
 
         public void DrinkPotion(int healthIncrease = 50 )
-        {
+        {   
+            Console.Clear();
             if(HealthPoints >= 1 && Potion.IsUseable)
             {
             Potion.UseUntilBreak--;
@@ -62,12 +63,15 @@ namespace PairProgramming.Data.Entities.PlayerEntities
             {
                 System.Console.WriteLine("You don't have any potions in your inventory.");
             }
+            System.Console.WriteLine("Press any key to continue..");
+            Console.ReadKey();
 
 
         }
 
-        public void ShootBowAndArrow(Enemy enemy, int attackPower1 = 10 )
+        public void ShootBowAndArrow(Enemy enemy, int attackPower1 = 15 )
         {
+            Console.Clear();
             if(BowAndArrow.IsUseable)
             {
                 BowAndArrow.UseUntilBreak--;
@@ -83,17 +87,20 @@ namespace PairProgramming.Data.Entities.PlayerEntities
                 {
                     System.Console.WriteLine($"You have defeated {enemy.Name}!! Put some Respect on it!!");
                 }
-                                        
+                                       
 
             }
             else
             {
                 System.Console.WriteLine("You need to find some arrows to use this Item!!");
             }
+            System.Console.WriteLine("Press any key to continue..");
+            Console.ReadKey();
         }
 
         public void SwordAttack(Enemy enemy, int attackPower2 = 25)
-        {
+        {   
+            Console.Clear();
             if (Sword.IsUseable)
             {
                 Sword.UseUntilBreak--;
@@ -115,7 +122,8 @@ namespace PairProgramming.Data.Entities.PlayerEntities
             {
                 System.Console.WriteLine("Your Sword has broken find another way to attack!!");
             }
-            
+            System.Console.WriteLine("Press any key to continue..");
+            Console.ReadKey();
         }
 
         public void AddToArrowQuiver(int arrowValue)

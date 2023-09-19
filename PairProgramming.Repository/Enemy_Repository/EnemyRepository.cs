@@ -1,5 +1,4 @@
-using System;
-using System.Collections.Generic;
+
 using System.Linq;
 using PairProgramming.Data.Entities.EnemyEntities;
 
@@ -61,7 +60,7 @@ namespace PairProgramming.Repository.Enemy_Repository
             var enemy3 = new Goblin
             {
                 ID = 3,
-                Name = "Goblin Preist",
+                Name = "Goblin Priest",
                 AttackStrength = 20,
                 AttackName = "Rage Blast"
 
