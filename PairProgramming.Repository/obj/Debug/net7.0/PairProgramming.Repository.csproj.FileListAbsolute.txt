@@ -1,0 +1,15 @@
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/bin/Debug/net7.0/PairProgramming.Repository.deps.json
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/bin/Debug/net7.0/PairProgramming.Repository.dll
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/bin/Debug/net7.0/PairProgramming.Repository.pdb
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/bin/Debug/net7.0/PairProgramming.Data.dll
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/bin/Debug/net7.0/PairProgramming.Data.pdb
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/obj/Debug/net7.0/PairProgramming.Repository.csproj.AssemblyReference.cache
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/obj/Debug/net7.0/PairProgramming.Repository.GeneratedMSBuildEditorConfig.editorconfig
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/obj/Debug/net7.0/PairProgramming.Repository.AssemblyInfoInputs.cache
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/obj/Debug/net7.0/PairProgramming.Repository.AssemblyInfo.cs
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/obj/Debug/net7.0/PairProgramming.Repository.csproj.CoreCompileInputs.cache
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/obj/Debug/net7.0/PairProgramming.Repository.csproj.CopyComplete
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/obj/Debug/net7.0/PairProgramming.Repository.dll
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/obj/Debug/net7.0/refint/PairProgramming.Repository.dll
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/obj/Debug/net7.0/PairProgramming.Repository.pdb
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Repository/obj/Debug/net7.0/ref/PairProgramming.Repository.dll

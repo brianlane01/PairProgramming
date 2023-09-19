@@ -1,0 +1,12 @@
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/bin/Debug/net7.0/PairProgramming.Data.deps.json
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/bin/Debug/net7.0/PairProgramming.Data.dll
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/bin/Debug/net7.0/PairProgramming.Data.pdb
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/obj/Debug/net7.0/PairProgramming.Data.csproj.AssemblyReference.cache
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/obj/Debug/net7.0/PairProgramming.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/obj/Debug/net7.0/PairProgramming.Data.AssemblyInfoInputs.cache
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/obj/Debug/net7.0/PairProgramming.Data.AssemblyInfo.cs
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/obj/Debug/net7.0/PairProgramming.Data.csproj.CoreCompileInputs.cache
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/obj/Debug/net7.0/PairProgramming.Data.dll
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/obj/Debug/net7.0/refint/PairProgramming.Data.dll
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/obj/Debug/net7.0/PairProgramming.Data.pdb
+/Users/brianlane/ElevenFiftyProjects/codingFoundations/dotNetprojects/assignments/consoleGame/PairProgramming.Data/obj/Debug/net7.0/ref/PairProgramming.Data.dll
