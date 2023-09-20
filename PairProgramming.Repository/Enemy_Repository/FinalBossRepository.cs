@@ -48,7 +48,7 @@ namespace PairProgramming.Repository.Enemy_Repository
             {
                 ID = 1,
                 Name = "Supreme Goblin Overlord",
-                AttackStrength = 25,
+                AttackStrength = 30,
                 AttackName = "Goblin Horde Attack"
             };
 

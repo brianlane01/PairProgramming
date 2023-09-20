@@ -56,7 +56,7 @@ namespace PairProgramming.Data.Entities.PlayerEntities
             System.Console.WriteLine($"You drink the potion, increasing your health.\n"+
                                     $"You recovered 50 HP!!\n"+
                                     $"Your HP is now {HealthPoints}.\n"+
-                                    "No more potions available.");
+                                    "Be more carefull");
                                 
             }
             else

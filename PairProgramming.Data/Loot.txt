@@ -1,7 +1,7 @@
 |
 1
 Potion
-5
+10
 |
 2
 Bow_And_Arrow

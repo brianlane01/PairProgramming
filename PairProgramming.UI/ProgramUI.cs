@@ -10,11 +10,13 @@ namespace PairProgramming.UI
     public class ProgramUI
     {
         private readonly EnemyRepository _villageEnemyRepo = new EnemyRepository();
-        
+        private readonly FinalBossRepository _villageBossRepo = new FinalBossRepository();
+
         // private PairProgramming.Data.Entities.EnemyEntities _enemy;
         public Player newHero = new Player();
         public bool _rescuedUpperVillage;
         public bool _rescuedLowerVillage;
+        public bool _rescuedVillager;
         public bool hasLeftUpperVillage;
         public bool hasLeftLowerVillage;
         private bool isRunning = true;
@@ -99,24 +101,220 @@ namespace PairProgramming.UI
             }
             else
             {
-                if (_rescuedLowerVillage == true && _rescuedUpperVillage == true)
-                {
-                    isRunning = ExitApplication();
-                }
                 AdvanceToKeep();
             }
+
+
         }
 
         private void AdvanceToKeep()
         {
-            // _rescuedLowerVillage = true;
-            // _rescuedUpperVillage = true;
+            System.Console.WriteLine($"{playerName} now that you have saved the villagers homes and the marketplace.\n" +
+                                    "We can advance to the main Fortress of the village....\n" +
+                                    "Press any key to continue to the fortress.");
+            Console.ReadKey();
+            Console.Clear();
+            System.Console.WriteLine("As you make your way up to the entrance to the fortrees you begin to hear the Goblin Horde\n" +
+                                    "Attacking and capturing the remaining villagers\n" +
+                                    $"{playerName} we must get to the goblins' Master before its too late.\n" +
+                                    $"{playerName}, will you...\n" +
+                                    "1. Rescue the villagers from the goblins.\n" +
+                                    "2. Run into the Fortress to finish this once and for all.");
+            int userInput = int.Parse(Console.ReadLine());
+            switch (userInput)
+            {
+                case 1:
+                    SaveVillagers();
+                    break;
+                case 2:
+                    EnterTheFortress();
+                    break;
+                default:
+                    System.Console.WriteLine("You must decide quickly before the goblins overrun your position.\n" +
+                                            "Please chose 1 or 2");
+                    Console.Clear();
+                    break;
+            }
 
-            System.Console.WriteLine("You have made to the end\n" +
+
+        }
+        private void SaveVillagers()
+        {
+            Console.Clear();
+            System.Console.WriteLine($"{playerName} selflessly ambushes the goblins from behind..\n" +
+            "You are able to cut and stab through the enemies unitl a lone goblin remains...");
+            Console.ReadKey();
+
+            var randomGoblin = _villageEnemyRepo.GetEnemy(2);
+            System.Console.WriteLine($"Standing before you is the {randomGoblin.Name}.\n" +
+                                    $"The {randomGoblin.Name} will end the villagers if you don't act {playerName}!!");
+            Console.ReadKey();
+            System.Console.WriteLine($"{playerName} charges in to attack {randomGoblin.Name}");
+            newHero.ShootBowAndArrow(randomGoblin);
+            try
+            {
+
+                ActivateGoblinBattle(randomGoblin);
+
+                
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine("AWLE.... Bad selection.. Press any key to continue");
+                Console.ReadKey();
+                ActivateGoblinBattle(randomGoblin);
+            }
+
+        }
+
+        private void ActivateGoblinBattle(Enemy randomGoblin)
+        {
+            while (randomGoblin.HealthPoints > 0)
+            {
+                randomGoblin.EnemyAttack(newHero);
+                System.Console.WriteLine($"Its your turn to attack {randomGoblin.Name}\n" +
+                                        $"1. Shoot an arrow at the {randomGoblin.Name}.\n" +
+                                        $"2. Use your sword to attack the {randomGoblin.Name}\n" +
+                                        "3. Drink your potion to replinish health.");
+                int userInput = int.Parse(Console.ReadLine());
+                switch (userInput)
+                {
+                    case 1:
+                        newHero.ShootBowAndArrow(randomGoblin);
+                        break;
+                    case 2:
+                        newHero.SwordAttack(randomGoblin);
+                        break;
+                    case 3:
+                        newHero.DrinkPotion();
+                        break;
+                    default:
+                        System.Console.WriteLine("Invalid Selection");
+                        randomGoblin.EnemyAttack(newHero);
+                        break;
+                }
+            }
+            Console.ReadKey();
+                System.Console.WriteLine($"You defeat the {randomGoblin.Name}!!\n" +
+                                        "The villagers give you their thanks as the flee to safety.\n" +
+                                        $"{playerName} shouts lets finish as they run into the Fortress for the final battle.");
+                _rescuedVillager = true;
+                Console.ReadKey();
+                EnterTheFortress();
+        }
+
+        private void EnterTheFortress()
+        {
+            Console.Clear();
+            System.Console.WriteLine($"{playerName} throws open the door to the fortress and charges in..\n" +
+                                    "The once humble gathering room for the Lord of the village\n" +
+                                    "Has been turned in to a goblin den with a foul smelling odor and\n" +
+                                    "in the center of the room a throne has been constructed...");
+            Console.ReadKey();
+            Console.Clear();
+            System.Console.WriteLine("As you inch ever closer to the throne you see that it has been built out of bones....\n" +
+                                    $"{playerName} slowly realizes that this is what has become of many a villager this day\n" +
+                                    "The smell that is permeating the air is coming from you realize, the rotting flesh of the dead\n");
+            Console.ReadKey();
+            Console.Clear();
+            System.Console.WriteLine($"{playerName} swears vengance against the gotesque creatures responsible for this nightmare\n" +
+                                    "As you began cursing the goblins everyway imaginable you slowly begin to notice something even more terrible\n" +
+                                    "A giant shadowy creature begins to take shape on the Throne of Bones....\n" +
+                                    "Press any key to continue....");
+            Console.ReadKey();
+            Console.Clear();
+            var bossGoblin = _villageBossRepo.GetBoss(1);
+            System.Console.WriteLine($"Getting up from the Throne of Bones is none other than the {bossGoblin.Name}\n" +
+                                    $"The {bossGoblin.Name} issues commands to the remaining horde in their twisted languge\n" +
+                                    $"At the commands of the {bossGoblin.Name} the horde encircles you both leaving no escape.\n" +
+                                    $"LETS END THIS!!! {playerName} shouts as the battle with tht {bossGoblin.Name} begins\n" +
                                     "Press any key to continue..");
             Console.ReadKey();
-            MainGate();
+            BossBattle();
+
         }
+
+        private void BossBattle()
+        {
+            System.Console.WriteLine("As the battle begins you fire your arrows as quickly as you can into the monster before you staggering it for a breif second");
+            var bossGoblin = _villageBossRepo.GetBoss(1);
+            System.Console.WriteLine($"As the {bossGoblin.Name} is staggered you formulate a plan to end the Goblin Horde's malevolent reign...");
+            Console.ReadKey();
+            try
+            {
+                while (bossGoblin.HealthPoints > 0)
+                {
+                    ActivateBossBattle(bossGoblin);
+                }
+
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine("AWLE.... Bad selection.. Press any key to continue");
+                Console.ReadKey();
+                ActivateBossBattle(bossGoblin);
+            }
+            Console.Clear();
+
+            System.Console.WriteLine("You have ended the reign of terror brought to the kingdom by the Goblin Horde..");
+            Console.ReadKey();
+            GoblinHordDefeat();
+        }
+
+        private void ActivateBossBattle(FinalBoss bossGoblin)
+        {
+            System.Console.WriteLine("As you battle the monstrosity in front of you ... Be mindful of your health\n" +
+                                    $"1. Shoot an arrow at the enemy.\n" +
+                                    $"2. Use your sword to attack the enemy.\n" +
+                                    "3. Drink your potion to replenish health.");
+            int userInput = int.Parse(Console.ReadLine());
+            switch (userInput)
+            {
+                case 1:
+                    newHero.ShootBowAndArrow(bossGoblin);
+                    Console.ReadKey();
+                    bossGoblin.BossAttack(newHero);
+                    Console.ReadKey();
+                    break;
+                case 2:
+                    newHero.SwordAttack(bossGoblin);
+                    Console.ReadKey();
+                    bossGoblin.BossAttack(newHero);
+                    Console.ReadKey();
+                    break;
+                case 3:
+                    newHero.DrinkPotion();
+                    break;
+                default:
+                    System.Console.WriteLine("Invalid Selection");
+                    bossGoblin.BossAttack(newHero);
+                    break;
+            }
+        }
+
+        private void GoblinHordDefeat()
+        {
+            Clear();
+            if (_rescuedVillager == true)
+            {
+                System.Console.WriteLine($"Thank you {playerName} for ending the Goblin Horde's destruction of the village\n" +
+                                        "Since you were able to save a portion of the villagers the town was able to rebuil and the land began to prosper.");
+                _rescuedLowerVillage = true;
+                _rescuedUpperVillage = true;
+                Console.ReadKey();
+                isRunning = ExitApplication();
+            }
+            else
+            {
+                System.Console.WriteLine($"Thank you {playerName} for ending the Goblin Horde's destruction of the village\n" +
+                "However since you did not take the time to save the villagers the land becomes desolate with no life for miles....");
+                Console.ReadKey();
+                isRunning = ExitApplication();
+            }
+
+
+        }
+
 
         private void ProceedToUpperVillage()
         {
@@ -211,33 +409,32 @@ namespace PairProgramming.UI
         private void PathToUpperVillage()
         {
             // bool rescuedUpperVillage = false;
-            while (!hasLeftUpperVillage)
+
+            Clear();
+            System.Console.WriteLine($"{playerName} reaches the Upper Village and see the devastation a group of goblins are leaving in their wake\n" +
+                                     "Only you can stop the destruction of the Homes in the Upper Village but...\n" +
+                                     $"{playerName} still have to face the Master of the goblins to end this...\n");
+            ReadKey();
+            Clear();
+            System.Console.WriteLine($"{playerName}, you have a split second to decide before you are noticed...\n" +
+                                    $"1. Charge in and attack the goblins destroying Homes in Upper Village\n" +
+                                    "2. Try to sneak around the goblins and find their leader");
+            var userInput = ReadLine();
+            switch (userInput)
             {
-                Clear();
-                System.Console.WriteLine($"{playerName} reaches the Upper Village and see the devastation a group of goblins are leaving in their wake\n" +
-                                         "Only you can stop the destruction of the Homes in the Upper Village but...\n" +
-                                         $"{playerName} still have to face the Master of the goblins to end this...\n");
-                ReadKey();
-                Clear();
-                System.Console.WriteLine($"{playerName}, you have a split second to decide before you are noticed...\n" +
-                                        $"1. Charge in and attack the goblins destroying Homes in Upper Village\n" +
-                                        "2. Try to sneak around the goblins and find their leader");
-                var userInput = ReadLine();
-                switch (userInput)
-                {
-                    case "1":
-                        AttackUpperVillage();
-                        break;
+                case "1":
+                    AttackUpperVillage();
+                    break;
 
-                    case "2":
-                        SneakAroundUpperVillage();
-                        break;
+                case "2":
+                    SneakAroundUpperVillage();
+                    break;
 
-                    default:
-                        System.Console.WriteLine($"{playerName}, you must act now or perish!!");
-                        break;
-                }
+                default:
+                    System.Console.WriteLine($"{playerName}, you must act now or perish!!");
+                    break;
             }
+
         }
         private void AttackUpperVillage()
         {
@@ -287,33 +484,33 @@ namespace PairProgramming.UI
         private void PathToLowerVillage()
         {
             // bool rescuedLowerVillage = false;
-            while (!hasLeftLowerVillage)
+
+
+            Clear();
+            System.Console.WriteLine($"{playerName} reaches the Lower Village and see the horror a group of goblins are leaving in their wake\n" +
+                                    "Only you can stop the destruction of the marketplace in the Lower Village but...\n" +
+                                    $"{playerName} still have to face the Master of the goblins to end this...\n");
+            ReadKey();
+            Clear();
+            System.Console.WriteLine($"{playerName}, you have a split second to decide before you are noticed...\n" +
+                                    $"1. Charge in and attack the goblins destroying the marketplace in the Lower Village\n" +
+                                    "2. Try to sneak around the goblins\n");
+            var userInput = ReadLine();
+            switch (userInput)
             {
-                Clear();
-                System.Console.WriteLine($"{playerName} reaches the Lower Village and see the horror a group of goblins are leaving in their wake\n" +
-                                        "Only you can stop the destruction of the marketplace in the Lower Village but...\n" +
-                                        $"{playerName} still have to face the Master of the goblins to end this...\n");
-                ReadKey();
-                Clear();
-                System.Console.WriteLine($"{playerName}, you have a split second to decide before you are noticed...\n" +
-                                        $"1. Charge in and attack the goblins destroying the marketplace in the Lower Village\n" +
-                                        "2. Try to sneak around the goblins\n");
-                var userInput = ReadLine();
-                switch (userInput)
-                {
-                    case "1":
-                        AttackLowerVillage();
-                        break;
+                case "1":
+                    AttackLowerVillage();
+                    break;
 
-                    case "2":
-                        SneakAroundLowerVillage();
-                        break;
+                case "2":
+                    SneakAroundLowerVillage();
+                    break;
 
-                    default:
-                        System.Console.WriteLine($"{playerName}, you must act now or perish!!");
-                        break;
-                }
+                default:
+                    System.Console.WriteLine($"{playerName}, you must act now or perish!!");
+                    break;
             }
+
         }
 
         private void AttackLowerVillage()
@@ -321,6 +518,7 @@ namespace PairProgramming.UI
             Console.Clear();
             System.Console.WriteLine($"{playerName} charges in hoping to prevent further destruction of the economic center of the town.\n" +
                                     "As you move in closer the leader of the group steps out to confront you...");
+            Console.ReadKey();
             var randomGoblin2 = _villageEnemyRepo.GetEnemy(3);
 
             try
@@ -367,13 +565,13 @@ namespace PairProgramming.UI
         private void SneakAroundLowerVillage()
         {
             Console.Clear();
-            Console.ReadKey()
+            Console.ReadKey();
             if (_rescuedUpperVillage == true)
             {
                 Console.Clear();
                 System.Console.WriteLine("The only way forward is to fight the goblins here...\n" +
                                         $"Prepare {playerName} the enemy is coming...");
-                Console.ReadKey();                        
+                Console.ReadKey();
                 AttackLowerVillage();
             }
             else
@@ -391,9 +589,10 @@ namespace PairProgramming.UI
             ReadKey();
             System.Console.WriteLine("You have passed into the void and left the kingdom open to destruction...");
             ReadKey();
-            isRunning=ExitApplication();
+            isRunning = ExitApplication();
 
         }
     }
 }
+
 

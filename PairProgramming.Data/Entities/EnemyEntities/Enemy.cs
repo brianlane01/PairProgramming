@@ -12,7 +12,7 @@ namespace PairProgramming.Data.Entities.EnemyEntities
         {
             _healthPoints = 100;
         }
-        private int _healthPoints;
+        public int _healthPoints;
         public int ID { get; set; }
         public string Name { get; set; } = string.Empty;
         public int HealthPoints 
